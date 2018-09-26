@@ -1,0 +1,26 @@
+/* pages/view/view.wxss */
+.item {
+  width: 100%;
+  height: 200rpx;
+}
+.item text{
+  font-size: medium;
+}
+.normal_view{
+  height: 100rpx;
+  width: 100rpx;
+  background: green;
+  /* padding: 10rpx; */
+}
+
+.normal_view_hover{
+  height: 100rpx;
+  width: 100rpx;
+  background: black;
+}
+.scroll_item{
+  width: 100%;
+  height: 50rpx;
+  border-bottom: 1rpx solid gray;
+  text-align: center;
+}

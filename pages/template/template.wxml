@@ -1,0 +1,6 @@
+<!--pages/template/template.wxml-->
+<template name="title">
+  <view class="title">
+    <text>{{title}}</text>
+  </view>
+</template>

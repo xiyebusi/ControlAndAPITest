@@ -1,0 +1,22 @@
+<import src='../template/template'  />
+
+<template is="title" data='{{...title}}'></template>
+
+<view class='container'>
+  <view class='item'>
+    <text>1、这是一个普通的view，点击会变色</text>
+    <view class='normal_view' hover-class='normal_view_hover'></view>
+  </view>
+  <view class='item'>
+    <text>2、这是一个scroll-view</text>
+    <scroll-view style='width:200rpx;height:140rpx;' scroll-y bindscrolltoupper='scrollTop' bindscrolltolower='scrollBottom' scroll-into-view="bbb">
+      <view class='scroll_item' id='aaa'>aaa</view>
+      <view class='scroll_item' id='bbb'>bbb</view>
+      <view class='scroll_item'>ccc</view>
+      <view class='scroll_item'>ddd</view>
+      <view class='scroll_item' id='eee'>eee</view>
+      <view class='scroll_item'>fff</view>
+      <view class='scroll_item'>ggg</view>
+    </scroll-view>
+  </view>
+</view>
