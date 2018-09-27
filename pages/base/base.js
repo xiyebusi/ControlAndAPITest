@@ -1,13 +1,11 @@
-// pages/view/view.js
+// pages/base/base.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    scrollTop: 100,
-    toView:'red',
-    swiperData: [{ backgroundColor: "red", content: '1' }, { backgroundColor: "yellow", content: '2' }, { backgroundColor: "blue", content: '3' }]
+
   },
 
   /**
@@ -64,11 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  scrollTop : function(e){
-    console.log('scrollTop');
-  },
-  scrollBottom : function(e){
-    console.log("scrollBottom");
   }
 })

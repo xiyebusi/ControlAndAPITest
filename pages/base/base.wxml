@@ -1,0 +1,25 @@
+<import src='../template/template'  />
+<template is='title' data='{{title:"基础内容"}}'></template>
+<view class='container'>
+  <!-- icon -->
+  <view class='item'>
+    <view>1、icon,自带的图标。只有type,size,color属性。size只能填数字。icon会和text标签合并。</view>   
+    <icon type='waiting'></icon>
+    <icon type='success_no_circle' size='18' ></icon>
+    <icon type='cancel' size='30' />
+  </view>
+
+  <!-- text -->
+  <view class='item'>
+    <view>2、text，里面的文字可以使用转移字符\\n这种的。可以设置空格宽度。</view>   
+    <text selectable='true' space='ensp'>这 是第一行的内容\n这是   第二行的内容</text>
+  </view>
+  
+  <!-- progress -->
+  <view class='item'>
+    <view>4、progress</view>   
+    <progress percent='10'></progress>
+    <progress percent='10' show-info='true' stroke-width='10'></progress>
+    <progress percent='10' show-info='true' stroke-width='10' activeColor='red' backgroundColor='black'></progress>
+  </view>
+</view> 

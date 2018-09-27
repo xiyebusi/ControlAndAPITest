@@ -1,14 +1,17 @@
 <import src='../template/template'  />
 
-<template is="title" data='{{...title}}'></template>
+<template is="title" data='{{title:"view类组件"}}'></template>
 
 <view class='container'>
+  <!-- 普通view -->
   <view class='item'>
     <text>1、这是一个普通的view，点击会变色</text>
     <view class='normal_view' hover-class='normal_view_hover'></view>
   </view>
+
+  <!-- srcoll-view -->
   <view class='item'>
-    <text>2、这是一个scroll-view</text>
+    <text>2、这是一个scroll-view,sroll-into-view这个方法很好用</text>
     <scroll-view style='width:200rpx;height:140rpx;' scroll-y bindscrolltoupper='scrollTop' bindscrolltolower='scrollBottom' scroll-into-view="bbb">
       <view class='scroll_item' id='aaa'>aaa</view>
       <view class='scroll_item' id='bbb'>bbb</view>
@@ -18,5 +21,29 @@
       <view class='scroll_item'>fff</view>
       <view class='scroll_item'>ggg</view>
     </scroll-view>
+  </view>
+  <!--swiper 轮播图  -->
+  <view class='item'>
+    <text>3、swiper,轮播图控件</text>
+    <swiper indicator-dots="true" autoplay="true" circular="true" previous-margin='20rpx;'>
+      <block wx:for='{{swiperData}}'>
+      <swiper-item><view class='swiper_item' style='background-color:{{item.backgroundColor}}'>{{item.content}}</view></swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- movable-move可移动view -->
+  <view class='item'>
+    <text>4、movable-move可移动view，有人用来做左滑删除，展示图片可以用。其他暂时没想到可以用来做什么。</text>
+    <movable-area style='width:300rpx;height:300rpx;background:red;z-index:1;'>
+      <movable-view style='width:100rpx;height:100rpx;background:blue;z-index:0;' direction='all' inertia='true' out-of-bounds='true' x='100rpx' y='100rpx' scale='true'></movable-view> 
+    </movable-area>
+  </view>
+
+  <!-- cover-view 可以覆盖在所有原生view上-->
+  <view class='item'>
+  <text>5、cover-view,可覆盖的原生组件包括map、video、canvas、camera、live-player、live-pusher，只支持嵌套cover-view、cover-image，可在cover-view中使用button。</text>
+   <canvas canvas-id="canvas" class="cover-view-canvas">
+      <cover-view class="cover-view">cover-view</cover-view>
+    </canvas>
   </view>
 </view>
