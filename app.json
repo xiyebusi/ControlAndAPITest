@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/base/base",
+    "pages/form/form",
     "pages/template/template"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

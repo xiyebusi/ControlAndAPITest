@@ -1,0 +1,29 @@
+<import src='../template/template'  />
+
+<template is="title" data='{{title:"view类组件"}}'></template>
+<view class='container'>
+  <!-- button -->
+  <view class='item'>
+    <view>1、button,除开微信的开放功能，button并没有什么特别之处，只是如果用图片做背景，还需要设置button :after的一个属性才能透明</view>
+    <button size='mini' type='primary' loading='true' open-type="contact">按钮</button>
+    <button type='warn' open-type='getUserInfo' bindgetuserinfo='getUserInfo' plain='plain'>getUserInfo</button>
+  </view>
+
+  <!-- checkbox -->
+  <view class='item'>
+    <view>2、checkbox,多选框。</view>
+    <checkbox-group>
+      <checkbox value='a'>aaaaa</checkbox>
+      <checkbox value='b'>bbbbb</checkbox>
+      <checkbox value='c' checked='checked'>ccccc</checkbox>
+      <checkbox value='d'>ddddd</checkbox>
+    </checkbox-group>
+
+    <checkbox-group class='checkbox_group' bindchange='checkbox_change'>
+      <block wx:for='{{checkboxData}}' wx:key='*this'>
+        <label for='{{item.id}}' class='checkbox_label{{item.isChecked?"_checked":""}}'><view><icon wx:if='{{item.isChecked}}' type='success' size='18'></icon>{{item.value}}</view></label>
+        <checkbox id='{{item.id}}' value='{{item.id}}' hidden='hidden' checked='{{item.isChecked?"checked":""}}'></checkbox>
+      </block>
+    </checkbox-group>
+  </view>
+</view>

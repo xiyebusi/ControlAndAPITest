@@ -1,0 +1,32 @@
+/* pages/form/form.wxss */
+
+.item {
+  width: 100%;
+  padding-bottom: 30rpx;
+}
+
+.item text {
+  font-size: medium;
+}
+
+.checkbox_group {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-around;
+  border: 2rpx solid blue;
+  border-radius: 12rpx;
+}
+
+/* .checkbox_group checkbox {
+  background-color: red;
+} */
+
+.checkbox_label {
+  border: 2rpx solid red;
+  padding: 5rpx;
+}
+
+.checkbox_label_checked {
+  border: 2rpx solid black;
+  padding: 5rpx;
+}
