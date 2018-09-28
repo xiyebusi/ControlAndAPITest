@@ -26,4 +26,91 @@
       </block>
     </checkbox-group>
   </view>
+
+  <!-- form -->
+  <view class='item'>
+    <view>4、form。点表单中button formType为submit组件可以提交value值</view> 
+    <view class='form_container'>
+    <form bindsubmit='form_submit' class='form_class' bindreset='form_reset'>
+      <view class='form_class'>
+        <!-- 用户名 -->
+        <view class='section'>
+          <view class='section_title'>用户名：</view>
+          <input class='section_content' name='username' placeholder='{{placeHolder}}'></input>
+        </view>
+
+        <!-- 性别 -->
+        <view class='section'>
+          <view class='section_title'>性 别：</view>
+          <view class='section_content'>
+            <radio-group name='sex'>
+              <radio value='man'>男</radio>
+              <radio value='women'>女</radio>
+            </radio-group>
+          </view>
+        </view>
+
+        <!-- 出战佣兵 -->
+        <view class='section'>
+          <view class='section_title'>出战佣兵：</view>
+          <view class='section_content'>
+            <checkbox-group name='helper'>
+              <checkbox value='刘备'>刘备</checkbox>
+              <checkbox value='孙权'>孙权</checkbox>
+              <checkbox value='曹操'>曹操</checkbox>
+            </checkbox-group>
+          </view>
+        </view>
+
+        <!-- 音效 -->
+        <view class='section'>
+          <view class='section_title'>开启音效：</view>
+          <view class='section_content'>
+            <switch name='music' checked='checked'></switch>
+          </view>
+        </view>
+
+        <view class='button_section'>
+            <button size='mini' type='primary' form-type='submit'>提交</button>
+            <button size='mini' type='primary' form-type='reset'>重置</button>
+        </view>
+      </view>
+    </form>
+    </view>  
+  </view>
+
+   <!--input  -->
+  <view class='item'>
+    <view>5、input输入框，type不同所对应的键盘不同。</view>
+    <input password='true' placeholder="mark"></input>
+    <input type='idcard' placeholder="请输入身份证"></input>
+  </view>
+
+   <!--radio label -->
+  <view class='item'>
+    <view>6、radio单选只有value、checked、color三个属性，label标签可以和checkbox、radio、button、switch配合用。可以用来更改默认的样式。</view>
+    <!-- 普通的radio -->
+    <radio-group>
+      <radio color='red'>中国</radio>
+      <radio>美国</radio>
+      <radio>巴西</radio>
+    </radio-group>
+
+    <!-- 配合label标签，自定义样式 -->
+     <radio-group bindchange='labelChange'>
+      <view wx:for='{{radioData}}' >
+      <label class='radio_item'>
+        <radio hidden='hidden' id='{{item.id}}' value='{{item.id}}' checked='{{item.isChecked}}'></radio>
+        <view class='radio_icon' style='opacity:{{item.isChecked ? 1: 0}}'></view>
+        <view>{{item.value}}</view>
+      </label>
+      </view>
+    </radio-group>
+  </view>
+
+ <!--picker  -->
+  <view class='item'>
+    <view>7、picker滚动选择器。</view>
+    <picker mode='selector' range-key='[1,2,3,4]'></picker>
+  </view>
 </view>

@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    checkboxData: [{ id: 'a', value: 'aaaaa', isChecked: true }, { id: 'b', value: 'bbbbb', isChecked: false }, { id: 'c', value: 'ccccc', isChecked: true }, { id: 'd', value: 'dddd', isChecked: false }]
+    checkboxData: [{ id: 'a', value: 'aaaaa', isChecked: true }, { id: 'b', value: 'bbbbb', isChecked: false }, { id: 'c', value: 'ccccc', isChecked: true }, { id: 'd', value: 'dddd', isChecked: false }],
+    placeHolder:'请输入不为空的用户',
+    radioData: [{ id: 'a', value: 'aaaaa', isChecked: false }, { id: 'b', value: 'bbbbb', isChecked: false }, { id: 'c', value: 'ccccc', isChecked: true }, { id: 'd', value: 'dddd', isChecked: false }]
   },
 
   /**
@@ -84,5 +86,24 @@ Page({
     this.setData({
       checkboxData: this.data.checkboxData
     })
+  },
+  form_submit :function(e){
+    console.log(e.detail.value);
+  },
+  form_reset : function(e){
+    console.log(e);
+  },
+  labelChange : function(e){
+    let checkIds = e.detail.value;
+    let changed = {};
+    for (let i = 0; i < this.data.radioData.length;i++){
+      if(checkIds.indexOf(this.data.radioData[i].id)!=-1){
+        changed['radioData[' + i + '].isChecked'] = true;
+      }else{
+        changed['radioData[' + i + '].isChecked'] = false;
+      }
+    }
+    this.setData(changed);
   }
+
 })

@@ -30,3 +30,61 @@
   border: 2rpx solid black;
   padding: 5rpx;
 }
+
+.section{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2rpx solid gray;
+  border-radius: 8rpx;
+}
+
+.button_section{
+  display: flex;
+  justify-content: space-around;
+   border: 2rpx solid gray;
+  border-radius: 8rpx;
+}
+
+.section_title{
+  width: 280rpx;
+  text-align: center;
+  border-right: 2rpx solid gray;
+  padding: 10rpx;
+}
+ .form_container{
+  width: 96%;
+  border: 2rpx solid blue;  
+  padding: 5rpx;
+  margin: 0 auto;
+} 
+/* .form_class{
+  border-right: 2rpx solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+} */
+
+.section_content{
+  padding-left: 20rpx;
+  width: 100%;
+}
+.section_content radio-group,checkbox-group{
+  display: flex;
+  justify-content: space-around;
+}
+
+.radio_icon{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background-color: greenyellow;
+}
+
+.radio_item{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border: 2rpx solid blue;
+  align-items: center;
+}

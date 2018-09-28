@@ -20,6 +20,7 @@
     <view>4、progress</view>   
     <progress percent='10'></progress>
     <progress percent='10' show-info='true' stroke-width='10'></progress>
-    <progress percent='10' show-info='true' stroke-width='10' activeColor='red' backgroundColor='black'></progress>
+    <progress percent='10' show-info='true' stroke-width='10' activeColor='red' backgroundColor='black' ></progress>
   </view>
+
 </view> 
