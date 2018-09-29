@@ -88,3 +88,11 @@
   border: 2rpx solid blue;
   align-items: center;
 }
+
+.picker_section{
+  margin-bottom: 20rpx;
+}
+
+.picker{
+  padding: 26rpx;
+}

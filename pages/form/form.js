@@ -7,7 +7,13 @@ Page({
   data: {
     checkboxData: [{ id: 'a', value: 'aaaaa', isChecked: true }, { id: 'b', value: 'bbbbb', isChecked: false }, { id: 'c', value: 'ccccc', isChecked: true }, { id: 'd', value: 'dddd', isChecked: false }],
     placeHolder:'请输入不为空的用户',
-    radioData: [{ id: 'a', value: 'aaaaa', isChecked: false }, { id: 'b', value: 'bbbbb', isChecked: false }, { id: 'c', value: 'ccccc', isChecked: true }, { id: 'd', value: 'dddd', isChecked: false }]
+    radioData: [{ id: 'a', value: 'aaaaa', isChecked: false }, { id: 'b', value: 'bbbbb', isChecked: false }, { id: 'c', value: 'ccccc', isChecked: true }, { id: 'd', value: 'dddd', isChecked: false }],
+    pickerData : ['长沙','株洲','湘潭','益阳'],
+    index : 0,
+     multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫'],['虫卵','幼体','成体']],
+    multiIndex: [0, 0, 0,0],
+    region: ['广东省', '广州市', '海珠区']
+
   },
 
   /**
@@ -104,6 +110,23 @@ Page({
       }
     }
     this.setData(changed);
+  },
+  bindPickerChange : function(e){
+    this.data.index = e.detail.value;
+    this.setData({
+      index: this.data.index
+    })
+  },
+  bindMultiPickerChange : function(e){
+    this.setData({
+      multiIndex: e.detail.value
+    })
+  },
+  bindRegionChange: function (e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
   }
 
 })
