@@ -130,10 +130,24 @@
   <!--picker-view  -->
   <view class='item'>
     <view>8、picker-view。用for循环初始化数据的时候，直接js页面，不放在onload方法里面</view>
-    <picker-view style='width:100%;height:300rpx;' indicator-style='height:50rpx;' value='{{value}}'>
+    <view style='width:100%' class='picker_content'>选择的年份是：{{year}}</view>
+    <picker-view style='width:100%;height:300rpx;' indicator-style='height:50rpx;' value='{{value}}' bindchange='pickerViewChange' mask-style='mask_style'>
       <picker-view-column>
-        <view wx:for='{{years}}' wx:key='*this' style="line-height: 50px">{{item}}</view>
+        <view wx:for='{{years}}' wx:key='*this' style="line-height: 50px" >{{item}}</view>
       </picker-view-column>
     </picker-view>
+  </view>
+
+  <!-- slider滑动选择器 -->
+  <view class='item'>
+    <view>9、slider滑动选择器。</view>
+    <slider show-value='true' step='.1' backgroundColor='gray' activeColor='black' block-size='18' block-color='green' bindchange='sliderChange' bindchanging='sliderChanging'></slider>
+    <view class='progress'>进度是：{{progress}}</view>
+  </view>
+
+  <!-- textview多行输入框 -->
+  <view class='item'>
+    <view>10、textview。</view>
+    <textarea class='textarea'></textarea>
   </view>
 </view>

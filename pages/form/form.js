@@ -20,7 +20,9 @@ Page({
     multiIndex: [0, 0, 0,0],
     region: ['广东省', '广州市', '海珠区'],
     years:years,
-    value:[]
+    value:[1],
+    year: 1991,
+    progress : 0
   },
 
   /**
@@ -45,8 +47,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    var arrays = [1,2,3];
-    console.log(arrays.indexOf(5));
+    
   },
 
   /**
@@ -137,6 +138,20 @@ Page({
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       region: e.detail.value
+    })
+  },
+  pickerViewChange : function(e){
+    var index = e.detail.value[0];
+    this.setData({
+      year: this.data.years[index]
+    })
+  },
+  sliderChange : function(e){
+    console.log('移动完成后value:' + e.detail.value);
+  },
+  sliderChanging : function(e){
+    this.setData({
+      progress : e.detail.value
     })
   }
 

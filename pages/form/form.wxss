@@ -96,3 +96,18 @@
 .picker{
   padding: 26rpx;
 }
+
+.picker_content{
+  margin: 20rpx;
+}
+
+.mask_style{
+  width: 100%;
+  background-color: blue;
+}
+
+.textarea{
+  border: 2rpx solid gray;
+  border-radius: 20rpx;
+  margin: 0 auto;
+}
