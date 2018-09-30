@@ -1,4 +1,10 @@
 // pages/form/form.js
+let date = new Date();
+let years = [];
+for (var i = 1990; i <= date.getFullYear(); i++) {
+  years.push(i);
+}
+
 Page({
 
   /**
@@ -12,15 +18,20 @@ Page({
     index : 0,
      multiArray: [['无脊柱动物', '脊柱动物'], ['扁性动物', '线形动物', '环节动物', '软体动物', '节肢动物'], ['猪肉绦虫', '吸血虫'],['虫卵','幼体','成体']],
     multiIndex: [0, 0, 0,0],
-    region: ['广东省', '广州市', '海珠区']
-
+    region: ['广东省', '广州市', '海珠区'],
+    years:years,
+    value:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    //还只能这样传参
+    // this.data.years = [1,2,3,4,5]
+    // this.setData({
+    //   years: this.data.years
+    // })
   },
 
   /**
