@@ -153,6 +153,9 @@ Page({
     this.setData({
       progress : e.detail.value
     })
+  },
+  textareaBlur : function(e){
+    console.log(e.detail.value);
   }
 
 })

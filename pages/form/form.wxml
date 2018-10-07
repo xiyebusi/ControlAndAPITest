@@ -141,13 +141,13 @@
   <!-- slider滑动选择器 -->
   <view class='item'>
     <view>9、slider滑动选择器。</view>
-    <slider show-value='true' step='.1' backgroundColor='gray' activeColor='black' block-size='18' block-color='green' bindchange='sliderChange' bindchanging='sliderChanging'></slider>
+    <slider show-value='true' step='1' backgroundColor='gray' activeColor='black' block-size='18' block-color='green' bindchange='sliderChange' bindchanging='sliderChanging'></slider>
     <view class='progress'>进度是：{{progress}}</view>
   </view>
 
   <!-- textview多行输入框 -->
   <view class='item'>
     <view>10、textview。</view>
-    <textarea class='textarea'></textarea>
+    <textarea class='textarea' bindblur='textareaBlur'></textarea>
   </view>
 </view>

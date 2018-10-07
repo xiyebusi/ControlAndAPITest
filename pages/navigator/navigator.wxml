@@ -1,0 +1,2 @@
+<!--pages/navigator/navigator.wxml-->
+<navigator open-type='redirect' url='../index/index'>点我查看view类组件</navigator>

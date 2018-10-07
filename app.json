@@ -1,7 +1,10 @@
 {
   "pages": [
+    "pages/media/media",
+    "pages/navigator/navigator",
     "pages/form/form",
-    "pages/template/template"
+    "pages/template/template",
+    "pages/index/index"
     
   ],
   "window": {
