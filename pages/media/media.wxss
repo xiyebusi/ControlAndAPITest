@@ -34,6 +34,7 @@
   border-radius: 50%;
 }
 
+/* 旋转的样式 */
 .music_on{
   animation: audio-rotate 8s linear infinite;
 }

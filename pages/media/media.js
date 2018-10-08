@@ -1,8 +1,10 @@
-// pages/media/media.js
+//InnerAudioContext实例
 var audioCxt;
+//动画
 var audioAnimation;
 audioCxt = wx.createInnerAudioContext();
 audioCxt.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46';
+
 Page({
 
   /**
@@ -10,101 +12,52 @@ Page({
    */
   data: {
     audioAnimation : null,
+    //音乐是不是开始
     music_on : true,
-    music_playing :true,
+    //音乐是不是在播放
+    music_playing :false,
+    //显示的时间
     musicTime : '00:00',
     sliderValue : 0
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-   
-    // audioCxt.autoplay = true;
+    //音乐播放结束触发
     audioCxt.onEnded((res) =>{
-      console.log("onEnded");
+      //修改属性。去除css状态
       this.data.music_on = false;
       this.setData({
         music_on: this.data.music_on
       })
-
+      //重新播放
       audioCxt.seek(0);
       this.setData({
         musicTime: '00:00',
         sliderValue: 0
       })
     }),
-    audioCxt.onPlay((res) =>{
-      audioCxt.onTimeUpdate((res) => {
-        var time = audioCxt.currentTime;
-        var percent = Math.round(time / audioCxt.duration * 100) ;
-        this.setData({
-          musicTime: this.musicTimeFormat(time),
-          sliderValue: percent
-        })
-      })
+    //在播放状态，绑定播放进度更新事件。然后控制进度条和时间显示
+    audioCxt.onPlay((res) =>{ 
+      audioCxt.onTimeUpdate(this.timeUpdate)
     })
-    
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
+  //播放按钮事件
   playMusic : function(){
     this.data.music_on = true; 
     this.data.music_playing = true;
     audioCxt.play();
+    //图片添加css样式，旋转样式
     this.setData({
       music_on: this.data.music_on,
       music_playing: this.data.music_playing
     })
   },
+
+  //暂停按钮事件
   pauseMusic : function(){
     this.data.music_on = true;
     this.data.music_playing = false;
@@ -114,6 +67,8 @@ Page({
       music_playing: this.data.music_playing
     })
   },
+
+  //停止按钮事件
   stopMusic : function(){
     audioCxt.stop();
     this.data.music_on = false;
@@ -121,19 +76,37 @@ Page({
       music_on: this.data.music_on
     })
   },
+
+  //进度条改变后触发事件
   audioChange : function(e){
     var length = audioCxt.duration;
     var percent = e.detail.value;
+    //用进度条百分比 *　整个音乐长度
     var musicTime = Math.round(length/100*percent);
     audioCxt.seek(musicTime);
-    console.log(audioCxt.currentTime);
+
+    //因为在拖动进度条时，去除了时间绑定，所以进度改变后重新绑定
+    audioCxt.onTimeUpdate(this.timeUpdate);
 
     this.setData({
       musicTime: this.musicTimeFormat(musicTime)
     })
   },
-  //拖动
-  audioChanging : function(e){},
+  //进度条拖动过程中触发事件
+  audioChanging : function(e){
+    //因为在进度条拖动的时候，还会在timeUpdate里面修改进度条的value，倒置拖动受影响，所以当拖动的时候需要取消绑定
+    audioCxt.offTimeUpdate();
+
+    //拖动时修改时间显示
+    var length = audioCxt.duration;
+    var percent = e.detail.value;
+    var musicTime = Math.round(length / 100 * percent);
+    this.setData({
+      musicTime: this.musicTimeFormat(musicTime)
+    })
+  },
+
+  //将秒钟转化为mm：ss的时间格式
   musicTimeFormat : function(time){
     var second = Math.floor(time % 60);
     if(second<10){
@@ -144,5 +117,15 @@ Page({
       minute = '0' + minute;
     }
     return minute + ':' + second;
+  },
+
+  //播放的时候，更新进度条和时间显示
+  timeUpdate : function(){
+    var time = audioCxt.currentTime;
+    var percent = Math.round(time / audioCxt.duration * 100);
+    this.setData({
+      musicTime: this.musicTimeFormat(time),
+      sliderValue: percent
+    })
   }
 })
