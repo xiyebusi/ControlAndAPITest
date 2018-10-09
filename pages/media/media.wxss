@@ -62,3 +62,18 @@
     transform: rotateZ(360deg);
   }
 }
+
+#my_video{
+  justify-self: center;
+  align-self: center;
+}
+
+.danmu_input{
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2rpx solid gray;
+  border-top: 2rpx solid gray;
+  padding: 10rpx;
+  margin: 5rpx;
+  justify-content: space-around;
+}

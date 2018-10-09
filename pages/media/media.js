@@ -4,7 +4,7 @@ var audioCxt;
 var audioAnimation;
 audioCxt = wx.createInnerAudioContext();
 audioCxt.src = 'http://ws.stream.qqmusic.qq.com/M500001VfvsJ21xFqb.mp3?guid=ffffffff82def4af4b12b3cd9337d5e7&uin=346897220&vkey=6292F51E1E384E06DCBDC9AB7C49FD713D632D313AC4858BACB8DDD29067D3C601481D36E62053BF8DFEAF74C0A5CCFADD6471160CAF3E6A&fromtag=46';
-
+var videoInputValue;
 Page({
 
   /**
@@ -25,6 +25,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
+    this.videoContext = wx.createVideoContext('my_video');
     //音乐播放结束触发
     audioCxt.onEnded((res) =>{
       //修改属性。去除css状态
@@ -127,5 +128,28 @@ Page({
       musicTime: this.musicTimeFormat(time),
       sliderValue: percent
     })
+  },
+
+  //video的js方法
+  bindInputBlur : function(e){
+    this.videoInputValue = e.detail.value;
+  },
+  bindSendDanmu : function(){
+      this.videoContext.sendDanmu({
+        text: this.videoInputValue,
+        color: getRandomColor()
+      })
   }
 })
+
+//随机弹幕的颜色，使用六位的进制数
+function getRandomColor() {
+  var rgb = [];
+  for(let i = 0; i < 3; i++){
+    //16进制的toString。结果为f、ff这样的。需要补位。
+    let color = Math.floor(Math.random() * 256).toString(16);
+    color = color.length== 1 ? '0' + color : color;
+    rgb.push(color);
+  }
+  return '#' + rgb.join('');
+}

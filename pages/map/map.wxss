@@ -1,0 +1,10 @@
+/* pages/map/map.wxss */
+.item{
+  width: 100%;
+}
+
+#my_map{
+  height: 600rpx;
+  width: 100%;
+  align-self: center;
+}

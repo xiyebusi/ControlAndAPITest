@@ -1,4 +1,3 @@
-<!--pages/media/media.wxml-->
 <import src="../template/template" />
 <template is="title" data='{{title:"媒体控件"}}' />
 
@@ -20,8 +19,25 @@
     </view>
     
   </view>
+
+  <!-- image -->
+  <view class='item'>
+    <text>2、image图片。没有几个属性，特点是mode，4种缩放9种剪裁。主要是控制iamge的宽高。</text>
+    <image style='width:500rpx;height:200rpx;' src='../../resources/images/cat.jpg' mode='aspectFill'></image>
+    <image style='width:500rpx;height:200rpx;' src='../../resources/images/cat.jpg' mode='aspectFit'></image>
+  </view>
+  
+  <!-- video -->
+  <view class='item'>
+    <text>3、video视频。小程序的视频控件多了很多功能。多了界面上滑动手势的相关功能，多了弹幕相关的功能(需要把弹幕打开)。关于界面的一些按钮设置无效</text>
+    <video id='my_video' enable-danmu='true' controls='false' danmu-btn='true' src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400"
+></video>
+    <view class='danmu_container'>
+      <view class='danmu_input'>
+        <view>请输入弹幕:</view>
+        <input type='text' bindblur='bindInputBlur' placeholder='这里输入弹幕'></input>
+      </view>
+      <button type='primary' bindtap='bindSendDanmu'>发送弹幕</button>
+    </view>
+  </view>
 </view>
-
-
-
-<button bindtap='playMusic'>播放</button>

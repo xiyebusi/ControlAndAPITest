@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/map/map",
     "pages/media/media",
     "pages/navigator/navigator",
     "pages/form/form",

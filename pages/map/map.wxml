@@ -1,0 +1,22 @@
+<import src="../template/template" />
+<template is="title" data='{{title:"媒体控件"}}' />
+
+<view class='container'>
+  <!-- audio -->
+  <view class='item'>
+    <text>map</text>
+    <map id='my_map'
+          longitude='{{longitude}}'
+          latitude='{{latitude}}'
+          markers='{{markers}}'
+          circles='{{circles}}'
+          show-location
+          bindpoitap='bindpoitap'
+    >
+      <block wx:for='{{flags}}' wx:key='*this'>
+        <cover-image id='{{item.id}}' src='/resources/images/cat.jpg' style='width:80rpx;height:80rpx;position:relative;left:{{item.left}}rpx;top:{{item.top}}rpx;' bindtap='flagTap'>
+        </cover-image>
+      </block>
+    </map>
+  </view>
+</view>
