@@ -1,10 +1,10 @@
 <import src="../template/template" />
-<template is="title" data='{{title:"媒体控件"}}' />
+<template is="title" data='{{title:"地图"}}' />
 
 <view class='container'>
   <!-- audio -->
   <view class='item'>
-    <text>map</text>
+    <text>map，小程序内置的地图比较简单，没办法根据地图动态添加marker，需要要知道经纬度。callout没实现。</text>
     <map id='my_map'
           longitude='{{longitude}}'
           latitude='{{latitude}}'

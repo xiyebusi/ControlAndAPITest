@@ -1,11 +1,12 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/map/map",
     "pages/media/media",
     "pages/navigator/navigator",
     "pages/form/form",
-    "pages/template/template",
-    "pages/index/index"
+    "pages/template/template"
+    
     
   ],
   "window": {
